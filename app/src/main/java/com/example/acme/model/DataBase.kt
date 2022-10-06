@@ -11,7 +11,6 @@ class DataBase (context:Context?) : SQLiteOpenHelper(context, "Acme", null, 1) {
     }
 
     override fun onUpgrade(db:SQLiteDatabase, versionAntigua:Int, versionNueva:Int) {
-        db.execSQL("DROP TABLE IF EXISTS " + Util.USERS_TABLE)
-        onCreate(db)
+          onCreate(db)
     }
 }
