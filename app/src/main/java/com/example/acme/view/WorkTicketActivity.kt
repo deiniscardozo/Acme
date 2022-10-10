@@ -43,8 +43,11 @@ class WorkTicketActivity : AppCompatActivity() {
             Util.intentActivity(this, GetDirectionsActivity::class.java)
         }
 
-        val customer = viewModel.getCustomer(this)[0]
-        val ticket = viewModel.getTickets(this)[0]
+        val work = intent.getStringExtra("work")
+        val name = intent.getStringExtra("customer")
+
+        val customer = viewModel.getCustomer(this, name)[0]
+        val ticket = viewModel.getTickets(this, work)[0]
 
         binding.customer.text = customer.customer
         binding.phone.text = customer.phone

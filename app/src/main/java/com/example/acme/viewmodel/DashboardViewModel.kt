@@ -4,6 +4,7 @@ import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.content.Context
 import android.content.DialogInterface
+import android.content.Intent
 import android.text.Html
 import android.view.LayoutInflater
 import android.view.MenuInflater
@@ -78,9 +79,12 @@ class DashboardViewModel: ViewModel() {
                         Toast.LENGTH_SHORT).show()
 
                     val idTicket = view.findViewById<TextView>(R.id.ticketNum)
-                   // idTicket
 
                     dialog.cancel()
+
+                    val intent = Intent(context, WorkTicketActivity::class.java)
+                    intent.putExtra("work", work.text)
+                    intent.putExtra("customer", customer.text)
 
                     Util.intentActivity(context, WorkTicketActivity::class.java)
 
