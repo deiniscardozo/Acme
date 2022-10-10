@@ -34,19 +34,19 @@ class CustomerRepository {
         db.close()
     }
 
-    private fun queryCustomer(contex:Context, customerName: String):Customers {
+    private fun queryCustomer(contex:Context):Customers {
         conn = DataBase(contex)
         val db:SQLiteDatabase = conn.readableDatabase
-        val param = if(customerName.isEmpty()) { null } else { arrayOf(customerName) }
-        val select = if(customerName.isEmpty()) { null } else { Util.CUSTOMERS_CUSTOMER }
+       // val param = if(customerName.isEmpty()) { null } else { arrayOf(customerName) }
+        //val select = if(customerName.isEmpty()) { null } else { Util.CUSTOMERS_CUSTOMER }
         val columns = arrayOf(Util.CUSTOMERS_CUSTOMER, Util.CUSTOMERS_PHONE, Util.CUSTOMERS_ADDRESS)
 
         try {
             cursor = db.query(
                 Util.CUSTOMERS_TABLE,
                 columns,
-                select,
-                param,
+                null,
+                null,
                 null,
                 null,
                 null
@@ -66,7 +66,7 @@ class CustomerRepository {
         return Customers(customer, phone, address)
     }
 
-     fun getCustomer(contex:Context, customerName: String?): List<Customers> {
-         return listOf(queryCustomer(contex, customerName!!))
+     fun getCustomer(contex:Context): List<Customers> {
+         return listOf(queryCustomer(contex))
      }
 }

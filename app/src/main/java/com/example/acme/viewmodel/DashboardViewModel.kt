@@ -1,10 +1,11 @@
 package com.example.acme.viewmodel
 
+import android.app.Activity
 import android.app.DatePickerDialog
-import android.app.TimePickerDialog
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
+import android.provider.CalendarContract
 import android.text.Html
 import android.view.LayoutInflater
 import android.view.MenuInflater
@@ -24,20 +25,26 @@ import com.example.acme.model.repository.TicketRepository
 import com.example.acme.view.DatePickerFragment
 import com.example.acme.view.GetDirectionsActivity
 import com.example.acme.view.WorkTicketActivity
+import java.util.*
 
 
 class DashboardViewModel: ViewModel() {
 
     private val repositoryTicket = TicketRepository()
     private val repositoryCustom = CustomerRepository()
-    private lateinit var work: TextView
-    private lateinit var customer: TextView
 
-    fun calendar(context:Context) {
+    fun calendar(context:Context, activity: Activity) {
         val builder = AlertDialog.Builder(context, R.style.CustomDialogTheme)
 
         builder.setTitle("Calendar")
             .setView(R.layout.calendar)
+            .setPositiveButton(
+                Html.fromHtml(
+                    "<font color='#32CD32'><b>Save</b></font>"),
+                DialogInterface.OnClickListener { dialog, id ->
+                    calendarevent(activity)
+                    dialog.cancel()
+                })
 
         builder.create()
         builder.show()
@@ -47,14 +54,14 @@ class DashboardViewModel: ViewModel() {
         val builder = AlertDialog.Builder(context, R.style.CustomDialogTheme)
         val inflater = LayoutInflater.from(context)
         val view = inflater.inflate(R.layout.new_ticket, null)
-        work = view.findViewById<TextView>(R.id.work)
+        val work = view.findViewById<TextView>(R.id.work)
         val sheduled = view.findViewById<TextView>(R.id.sheduled)
         val note = view.findViewById<TextView>(R.id.dispatchtNote)
         val distance = "100"
         val dept = view.findViewById<TextView>(R.id.deptClass)
         val service = view.findViewById<TextView>(R.id.service)
         val reason = view.findViewById<TextView>(R.id.reasonCall)
-        customer = view.findViewById<TextView>(R.id.customer)
+        val customer = view.findViewById<TextView>(R.id.customer)
         val phone = view.findViewById<TextView>(R.id.phone)
         val address = view.findViewById<TextView>(R.id.address)
 
@@ -82,10 +89,6 @@ class DashboardViewModel: ViewModel() {
 
                     dialog.cancel()
 
-                    val intent = Intent(context, WorkTicketActivity::class.java)
-                    intent.putExtra("work", work.text)
-                    intent.putExtra("customer", customer.text)
-
                     Util.intentActivity(context, WorkTicketActivity::class.java)
 
                 })
@@ -109,12 +112,12 @@ class DashboardViewModel: ViewModel() {
 
     fun getTickets(context:Context):List<Tickets> {
 
-        return listOf(repositoryTicket.getTicket(context, work.text.toString()))
+        return listOf(repositoryTicket.getTicket(context))
     }
 
     fun getCustomer(context:Context):List<Customers> {
 
-        return repositoryCustom.getCustomer(context, customer.text.toString())
+        return repositoryCustom.getCustomer(context)
     }
 
     fun showPopup(context:Context, v:View) {
@@ -144,5 +147,31 @@ class DashboardViewModel: ViewModel() {
             })
 
             newFragment.show(fragmentManager, "datePicker")
+    }
+
+    fun calendarevent(activity: Activity) {
+        var cal: Calendar = Calendar.getInstance()
+
+        cal.set(Calendar.DAY_OF_MONTH, 29)
+        cal.set(Calendar.MONTH, 4)
+        cal.set(Calendar.YEAR, 2013)
+
+        cal.set(Calendar.HOUR_OF_DAY, 22)
+        cal.set(Calendar.MINUTE, 45)
+
+        var intent = Intent(Intent.ACTION_EDIT)
+
+        intent.type = "vnd.android.cursor.item/event";
+
+        intent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, cal.timeInMillis);
+        intent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, cal.timeInMillis +60*60*1000);
+
+        intent.putExtra(CalendarContract.Events.ALL_DAY, false);
+        intent.putExtra(CalendarContract.Events.RRULE , "FREQ=DAILY");
+        intent.putExtra(CalendarContract.Events.TITLE, "Título de vuestro evento");
+        intent.putExtra(CalendarContract.Events.DESCRIPTION, "Descripción");
+        intent.putExtra(CalendarContract.Events.EVENT_LOCATION,"Calle ....");
+
+        activity.startActivity(intent)
     }
 }

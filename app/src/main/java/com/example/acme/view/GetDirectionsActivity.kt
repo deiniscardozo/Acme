@@ -23,6 +23,13 @@ class GetDirectionsActivity : AppCompatActivity(), OnMapReadyCallback {
         binding = ActivityGetDirectionsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val tab = binding.tabLayout
+        tab.addTab(tab.newTab().setText("Overview"))
+        tab.addTab(tab.newTab().setText("Work Details"))
+        tab.addTab(tab.newTab().setText("Purchasing"))
+        tab.addTab(tab.newTab().setText("Finishing Up"))
+        tab.addTab(tab.newTab().setIcon(R.drawable.ic_baseline_photo_camera_24))
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment

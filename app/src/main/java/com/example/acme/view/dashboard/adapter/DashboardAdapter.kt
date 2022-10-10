@@ -1,8 +1,10 @@
 package com.example.acme.view.dashboard.adapter
 
 import android.content.Context
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import com.example.acme.R
 import com.example.acme.model.entity.Customers
@@ -20,6 +22,7 @@ class DashboardAdapter (private val listTickets: MutableList<Tickets>,
             , false))
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: DashboardViewHolder, position: Int) {
         val itemTicket = listTickets[position]
         val itemCustomer = listCustomers[position]

@@ -44,11 +44,11 @@ class TicketRepository {
         db.close()
     }
 
-    fun queryTicket(contex:Context, workTicket: String):Tickets {
+    fun queryTicket(contex:Context):Tickets {
         conn = DataBase(contex)
         val db:SQLiteDatabase = conn.readableDatabase
-        val param = if(workTicket.isEmpty()) { null } else { arrayOf(workTicket) }
-        val select = if(workTicket.isEmpty()) { null } else { Util.TICKETS_WORK }
+        //val param = if(workTicket.isEmpty()) { null } else { arrayOf(workTicket) }
+        //val select = if(workTicket.isEmpty()) { null } else { Util.TICKETS_WORK }
         val columns = arrayOf(Util.TICKETS_WORK, Util.TICKETS_DATE,
             Util.TICKETS_SHEDULED, Util.TICKETS_NOTE, Util.TICKETS_DISTANCE,
             Util.TICKETS_DEPTCLASS, Util.TICKETS_SERVICETYPE, Util.TICKETS_REASONCALL)
@@ -57,8 +57,8 @@ class TicketRepository {
             cursor = db.query(
                 Util.TICKETS_TABLE,
                 columns,
-                select,
-                param,
+                null,
+                null,
                 null,
                 null,
                 null
@@ -84,7 +84,7 @@ class TicketRepository {
             distance, deptClass, serviceType, reasonCall)
     }
 
-    fun getTicket(contex:Context, workTicket: String?): Tickets{
-        return queryTicket(contex, workTicket!!)
+    fun getTicket(contex:Context): Tickets{
+        return queryTicket(contex)
     }
 }

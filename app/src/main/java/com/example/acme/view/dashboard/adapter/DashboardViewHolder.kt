@@ -2,7 +2,6 @@ package com.example.acme.view.dashboard.adapter
 
 import android.content.Context
 import android.os.Build
-import android.util.Log
 import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView

@@ -21,19 +21,22 @@
                 android:id="@+id/calendar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:paddingEnd="8dp"
                 android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
                     android:src="@drawable/ic_baseline_calendar_today_24"
                     app:tint="@color/green"
                     android:contentDescription="@string/calendar" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
                     android:layout_gravity="left"
                     android:text="@string/calendar"
                     android:textColor="@color/green"
@@ -50,14 +53,16 @@
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
                     android:src="@drawable/ic_baseline_repeat_24"
                     app:tint="@color/green"
                     android:contentDescription="@string/calendar" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
                     android:layout_gravity="left"
                     android:text="@string/sync"
                     android:textColor="@color/green"
@@ -73,14 +78,15 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="150dp"
+                    android:layout_width="50dp"
                     android:layout_height="match_parent"
                     android:src="@drawable/acme_adobe_express"
                     android:contentDescription="@string/logo" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:text=" | DASHBOARD"
                     android:textColor="@android:color/darker_gray"
                     android:textSize="20sp" />
@@ -97,14 +103,16 @@
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
                     android:src="@drawable/ic_baseline_menu_24"
                     app:tint="@color/green"
                     android:contentDescription="@string/menu" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
                     android:layout_gravity="left"
                     android:text="@string/menu"
                     android:textColor="@color/green"
@@ -121,13 +129,15 @@
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
                     android:src="@drawable/ic_baseline_add_24"
                     app:tint="@color/green" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
                     android:layout_gravity="left"
                     android:text="@string/new_ticket"
                     android:textColor="@color/green"

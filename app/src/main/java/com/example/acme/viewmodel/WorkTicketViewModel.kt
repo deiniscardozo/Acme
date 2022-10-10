@@ -20,14 +20,14 @@ class WorkTicketViewModel: ViewModel() {
     private val repositoryTicket = TicketRepository()
     private val repositoryCustom = CustomerRepository()
 
-    fun getTickets(context:Context, work:String?):List<Tickets> {
+    fun getTickets(context:Context):List<Tickets> {
 
-        return listOf(repositoryTicket.getTicket(context, work))
+        return listOf(repositoryTicket.getTicket(context))
     }
 
-    fun getCustomer(context:Context, name:String?):List<Customers> {
+    fun getCustomer(context:Context):List<Customers> {
 
-        return repositoryCustom.getCustomer(context, name)
+        return repositoryCustom.getCustomer(context)
     }
 
     fun showPopup(context:Context, v:View) {

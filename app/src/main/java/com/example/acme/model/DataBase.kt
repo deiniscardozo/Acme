@@ -3,7 +3,6 @@ package com.example.acme.model
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import android.util.Log
 import com.example.acme.model.Util.CREATE_TABLE_CUSTOMERS
 import com.example.acme.model.Util.CREATE_TABLE_TICKETS
 import com.example.acme.model.Util.CREATE_TABLE_USERS
