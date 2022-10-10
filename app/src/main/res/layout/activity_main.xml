@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.MainActivity">
+    android:layout_width="match_parent"
+    android:fillViewport="true"
+    android:background="@color/white"
+    tools:context=".view.MainActivity" >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/imageAcme"
@@ -18,60 +24,82 @@
         app:layout_constraintVertical_bias="0.337"
         app:srcCompat="@drawable/acme_adobe_express" />
 
-    <EditText
-        android:id="@+id/userName"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutUserName"
         android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:background="@color/white"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:backgroundTintMode="@color/white"
+        android:enabled="true"
         android:hint="User"
-        android:drawableStart="@drawable/ic_baseline_perm_identity_24"
-        android:layout_marginTop="20dp"
+        app:boxStrokeColor="@color/green"
+        app:hintTextColor="@color/green"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayoutUserPass"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageAcme" />
+        app:layout_constraintTop_toBottomOf="@+id/imageAcme"
+        app:startIconDrawable="@drawable/ic_baseline_perm_identity_24">
 
-    <EditText
-        android:id="@+id/userPass"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/userName"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textPersonName" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutUserPass"
         android:layout_width="350dp"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:background="@color/white"
-        android:inputType="textPassword"
         android:hint="Password"
-        android:drawableStart="@drawable/ic_baseline_lock_open_24"
+        android:backgroundTintMode="@color/white"
+        app:startIconDrawable="@drawable/ic_baseline_lock_open_24"
+        app:boxStrokeColor="@color/green"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:passwordToggleEnabled="true"
-        app:layout_constraintTop_toBottomOf="@+id/userName" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutUserName"
+        app:hintTextColor="@color/green">
 
-    <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:background="@color/green"
-        android:onClick="onClick"
-        android:text="Login"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userPass" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/userPass"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textPassword" />
 
-    <Button
-        android:id="@+id/btnRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:background="@android:color/transparent"
-        android:elegantTextHeight="false"
-        android:enabled="true"
-        android:onClick="onClick"
-        android:text="Register"
-        android:textAlignment="viewEnd"
-        android:textColor="@android:color/darker_gray"
-        android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.683"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@color/green"
+            android:onClick="onClick"
+            android:text="Login"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayoutUserPass" />
+
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@android:color/transparent"
+            android:elegantTextHeight="false"
+            android:enabled="true"
+            android:onClick="onClick"
+            android:text="Register"
+            android:textAlignment="viewEnd"
+            android:textColor="@android:color/darker_gray"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.604"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

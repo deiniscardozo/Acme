@@ -1,70 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.UsersRegisterActivity">
+    android:layout_width="match_parent"
+    android:fillViewport="true"
+    tools:context=".view.UsersRegisterActivity" >
 
-    <ImageView
-        android:id="@+id/imageAcme"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.953"
-        app:srcCompat="@drawable/acme_adobe_express" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="USERS REGISTER"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:textColor="@color/green"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.337" />
+        <ImageView
+            android:id="@+id/imageAcme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.337"
+            app:srcCompat="@drawable/acme_adobe_express" />
 
-    <EditText
-        android:id="@+id/userNameReg"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:background="@color/white"
-        android:hint="User"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/users_register"
+            android:textColor="@color/green"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageAcme" />
 
-    <EditText
-        android:id="@+id/userPassReg"
-        android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
-        android:background="@color/white"
-        android:hint="Password"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userNameReg" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayoutUserNameReg"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:backgroundTintMode="@color/white"
+            android:enabled="true"
+            android:hint="@string/user"
+            app:boxStrokeColor="@color/green"
+            app:hintTextColor="@color/green"
+            app:layout_constraintBottom_toTopOf="@+id/textInputLayoutUserPassReg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:startIconDrawable="@drawable/ic_baseline_perm_identity_24">
 
-    <Button
-        android:id="@+id/btnRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:onClick="onClick"
-        android:text="User Register"
-        android:background="@color/green"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userPassReg" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/userNameReg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="text" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayoutUserPassReg"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="@string/password"
+            app:startIconDrawable="@drawable/ic_baseline_lock_open_24"
+            android:backgroundTintMode="@color/white"
+            app:boxStrokeColor="@color/green"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:passwordToggleEnabled="true"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayoutUserNameReg"
+            android:enabled="true"
+            app:hintTextColor="@color/green">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/userPassReg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="textPassword" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@color/green"
+            android:textSize="11sp"
+            android:text="@string/user_register"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayoutUserPassReg" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

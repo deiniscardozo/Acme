@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/fragment_horizontal_margin"
+    android:paddingTop="@dimen/fragment_vertical_margin"
+    android:paddingRight="@dimen/fragment_horizontal_margin"
+    android:paddingBottom="@dimen/fragment_vertical_margin"
+    tools:context=".view.dashboard.DashboardActivity">
+
+    <ImageView
+        android:id="@+id/imageAcme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.01"
+        app:srcCompat="@drawable/acme_adobe_express" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:paddingEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageAcme">
+
+        <TextView
+            android:id="@+id/ticketNum"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:backgroundTintMode="@color/white"
+            android:hint="@string/ticket"
+            app:boxStrokeColor="@color/green"
+            app:hintTextColor="@color/green"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayoutWork"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:backgroundTintMode="@color/white"
+            android:enabled="true"
+            android:hint="@string/work"
+            app:boxStrokeColor="@color/green"
+            app:hintTextColor="@color/green"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/work"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="textPersonName" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayoutSheduled"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:backgroundTintMode="@color/white"
+            android:enabled="true"
+            android:hint="@string/sheduled_for"
+            app:boxStrokeColor="@color/green"
+            app:hintTextColor="@color/green"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:focusable="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/sheduled"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="datetime" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:paddingEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayoutCustomer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:backgroundTintMode="@color/white"
+            android:hint="@string/customer"
+            app:boxStrokeColor="@color/green"
+            app:hintTextColor="@color/green"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/customer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="textPersonName" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayoutPhone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:backgroundTintMode="@color/white"
+            android:hint="@string/phone_number"
+            app:boxStrokeColor="@color/green"
+            app:hintTextColor="@color/green"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/phone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="phone" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutAddress"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="10dp"
+        android:layout_weight="1"
+        android:backgroundTintMode="@color/white"
+        android:hint="@string/address"
+        app:boxStrokeColor="@color/green"
+        app:hintTextColor="@color/green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutAddress">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayoutDeptClass"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:backgroundTintMode="@color/white"
+            android:hint="@string/dept_class"
+            app:boxStrokeColor="@color/green"
+            app:hintTextColor="@color/green"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/deptClass"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="textPersonName" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayoutService"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:backgroundTintMode="@color/white"
+            android:hint="@string/service_type"
+            app:boxStrokeColor="@color/green"
+            app:hintTextColor="@color/green"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/service"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="textPersonName" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutDispatchNote"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="10dp"
+        android:layout_weight="1"
+        android:backgroundTintMode="@color/white"
+        android:hint="@string/dispatch_note"
+        app:boxStrokeColor="@color/green"
+        app:hintTextColor="@color/green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/dispatchtNote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutReasonCall"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="10dp"
+        android:layout_weight="1"
+        android:backgroundTintMode="@color/white"
+        android:hint="@string/reason_call"
+        app:boxStrokeColor="@color/green"
+        app:hintTextColor="@color/green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutDispatchNote">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/reasonCall"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

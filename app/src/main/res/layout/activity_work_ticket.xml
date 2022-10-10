@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    tools:context=".view.WorkTicketActivity">
+
+    <include
+        android:id="@+id/app_bar_dashboard_work"
+        layout="@layout/app_action_bar_work"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_weight="1"
+        android:paddingBottom="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/app_bar_dashboard_work">
+
+
+        <TextView
+            android:id="@+id/dateCustomerInf"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:backgroundTintMode="@color/white"
+            android:text="@string/customer_info"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/scheduledFor"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:backgroundTintMode="@color/white"
+            android:text="@string/scheduled_for"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_weight="1"
+        android:paddingBottom="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
+
+        <TextView
+            android:id="@+id/customer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="3"
+            android:backgroundTintMode="@color/white"
+            android:hint="@string/customer"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="0.2"
+            app:srcCompat="@drawable/ic_baseline_phone_24"
+            app:tint="@color/green" />
+
+        <TextView
+            android:id="@+id/phone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:backgroundTintMode="@color/white"
+            android:hint="@string/phone_number"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/dateSheduled"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="4.5"
+            android:backgroundTintMode="@color/white"
+            android:hint="Sheduled"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linea"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/gray"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout8" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_weight="1"
+        android:paddingBottom="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout7">
+
+
+        <TextView
+            android:id="@+id/dateJobSite"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:backgroundTintMode="@color/white"
+            android:text="@string/job_site_adrres"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:drawableStartCompat="@drawable/ic_baseline_place_24" />
+
+        <TextView
+            android:id="@+id/dispatchtNote"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:backgroundTintMode="@color/white"
+            android:text="@string/dispatch_note_t"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_weight="1"
+        android:paddingBottom="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout8">
+
+
+        <TextView
+            android:id="@+id/address"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:backgroundTintMode="@color/white"
+            android:hint="@string/address"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/getDirections"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="0.55"
+            android:backgroundTintMode="@color/white"
+            android:text="@string/get_directions"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/note"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1.6"
+            android:backgroundTintMode="@color/white"
+            android:hint="@string/dispatch_note"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout11"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_weight="1"
+        android:paddingBottom="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout10">
+
+
+        <TextView
+            android:id="@+id/distance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="2.07"
+            android:backgroundTintMode="@color/white"
+            android:text="@string/distance"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:drawableStartCompat="@drawable/ic_baseline_near_me_24" />
+
+        <TextView
+            android:id="@+id/deptClass"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:backgroundTintMode="@color/white"
+            android:text="@string/dept_class_t"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/service"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:backgroundTintMode="@color/white"
+            android:hint="@string/service_type_T"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout12"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:background="@color/white"
+        android:layout_marginEnd="10dp"
+        android:layout_weight="1"
+        android:paddingBottom="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout11">
+
+
+        <TextView
+            android:id="@+id/distances"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="2.07"
+            android:backgroundTintMode="@color/white"
+            android:hint="@string/distance"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/dclass"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:backgroundTintMode="@color/white"
+            android:hint="@string/dept_class"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/serviceType"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:backgroundTintMode="@color/white"
+            android:hint="@string/service_type"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_weight="1"
+        android:paddingBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/tabLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <TextView
+            android:id="@+id/reason"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:backgroundTintMode="@color/white"
+            android:text="@string/reason_call_t"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/reasonDes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="5"
+            android:backgroundTintMode="@color/white"
+            android:hint="@string/reason_call"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/ticketNum"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="2"
+            android:backgroundTintMode="@color/white"
+            android:hint="@string/ticket"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

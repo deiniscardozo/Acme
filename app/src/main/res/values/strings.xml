@@ -1,3 +1,47 @@
 <resources>
     <string name="app_name">Acme</string>
+    <string name="user_register">User Register</string>
+    <string name="password">Password</string>
+    <string name="user">User</string>
+    <string name="users_register">USERS REGISTER</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="add">Add</string>
+    <string name="sync">Sync</string>
+    <string name="calendar">Calendar</string>
+    <string name="menu">Menu</string>
+    <string name="new_ticket">New Ticket</string>
+    <string name="dashboard">DASHBOARD</string>
+    <string name="logo">Logo</string>
+    <string name="get_directions">Get Directions</string>
+    <string name="work_ticket">Work Ticket</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome!"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="customer">Customer</string>
+    <string name="ticket">Ticket</string>
+    <string name="work">Work</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="address">Address</string>
+    <string name="dept_class">Dept. Class</string>
+    <string name="service_type">Service Type</string>
+    <string name="sheduled_for">Sheduled For</string>
+    <string name="dispatch_note">Dispatch Note</string>
+    <string name="reason_call">Reason Call</string>
+    <string name="customer_info">Customer Info:</string>
+    <string name="scheduled_for">Scheduled For:</string>
+    <string name="job_site_adrres">Job Site Adrres:</string>
+    <string name="dispatch_note_t">Dispatch Note:</string>
+    <string name="distance">Distance:</string>
+    <string name="dept_class_t">Dept. Class:</string>
+    <string name="service_type_T">Service Type:</string>
+    <string name="reason_call_t">Reason Call:</string>
+    <string name="title_activity_get_directions">GetDirectionsActivity</string>
 </resources>

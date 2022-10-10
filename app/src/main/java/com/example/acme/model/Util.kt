@@ -3,13 +3,10 @@ package com.example.acme.model
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.os.Message
-import android.view.Gravity
-import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import com.example.acme.R
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 
 object Util: AppCompatActivity() {
 
@@ -19,27 +16,52 @@ object Util: AppCompatActivity() {
     const val USER_NAME = "user"
     const val USER_PASS = "password"
     const val CREATE_TABLE_USERS = "CREATE TABLE " +
-            "" + USERS_TABLE + " (" + USER_ID + " INTEGER AUTOINCREMENT, " +
-             USER_NAME + " TEXT PRIMARY KEY," + USER_PASS + " TEXT)"
+            "" + USERS_TABLE + " (" + USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+             USER_NAME + " TEXT," + USER_PASS + " TEXT)"
 
+    //Constants tickets table fields
+    const val TICKETS_TABLE = "Tickets"
+    const val TICKETS_ID = "idTickets"
+    const val TICKETS_WORK = "work"
+    const val TICKETS_DATE = "dateCreated"
+    const val TICKETS_SHEDULED = "dateSheduled"
+    const val TICKETS_NOTE = "note"
+    const val TICKETS_DISTANCE = "distance"
+    const val TICKETS_DEPTCLASS = "deptClass"
+    const val TICKETS_SERVICETYPE = "serviceType"
+    const val TICKETS_REASONCALL = "reasonCall"
+    const val CREATE_TABLE_TICKETS = "CREATE TABLE " +
+            "" + TICKETS_TABLE + " (" + TICKETS_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            TICKETS_WORK + " TEXT," + TICKETS_DATE + " TEXT," + TICKETS_SHEDULED + " TEXT," +
+            TICKETS_NOTE + " TEXT," + TICKETS_DISTANCE + " TEXT," + TICKETS_DEPTCLASS + " TEXT," +
+            TICKETS_SERVICETYPE + " TEXT," + TICKETS_REASONCALL + " TEXT)"
+
+    //Constants customers table fields
+    const val CUSTOMERS_TABLE = "Customers"
+    const val CUSTOMERS_ID = "id"
+    const val CUSTOMERS_CUSTOMER = "customer"
+    const val CUSTOMERS_PHONE = "phone"
+    const val CUSTOMERS_ADDRESS = "address"
+    const val CREATE_TABLE_CUSTOMERS = "CREATE TABLE " +
+            "" + CUSTOMERS_TABLE + " (" + CUSTOMERS_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+            CUSTOMERS_CUSTOMER + " TEXT," + CUSTOMERS_PHONE + " TEXT," + CUSTOMERS_ADDRESS + " TEXT)"
+
+    //Intent Activity
     fun intentActivity(context: Context?, activity: Class<*>) {
         ContextCompat.startActivity(
             context!!,
             Intent(context, activity),
             Bundle()
         )
-
         finish()
     }
 
-    fun Toast(message: String){
-        val view = layoutInflater.inflate(R.layout.toast_ok, null)
-        val text: TextView = view.findViewById(R.id.toastMessage)
+    //Intent Fragment
+    fun intentFragment(fragment:Fragment, manager:FragmentManager, viewInt: Int) {
+        val transaction = manager.beginTransaction()
 
-        Toast(this).apply {
-            setGravity(Gravity.CENTER, 0, 0)
-            setView(view)
-            text.text = message
-        }.show()
+        transaction.replace(viewInt, fragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
     }
 }

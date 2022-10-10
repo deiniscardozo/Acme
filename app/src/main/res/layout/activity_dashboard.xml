@@ -4,6 +4,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.DashboardActivity">
+    android:fillViewport="true"
+    android:background="@color/gray"
+    tools:context=".view.dashboard.DashboardActivity">
+
+    <include
+        android:id="@+id/app_bar_dashboard"
+        layout="@layout/app_action_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginStart="16dp"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/reciclerTickets"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/app_bar_dashboard" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/reciclerTickets"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDate" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
