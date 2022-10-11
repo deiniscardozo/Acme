@@ -14,7 +14,6 @@ import com.example.acme.model.repository.TicketRepository
 import com.example.acme.view.GetDirectionsActivity
 import com.example.acme.view.dashboard.DashboardActivity
 
-
 class WorkTicketViewModel: ViewModel() {
 
     private val repositoryTicket = TicketRepository()
@@ -28,6 +27,26 @@ class WorkTicketViewModel: ViewModel() {
     fun getCustomer(context:Context):List<Customers> {
 
         return repositoryCustom.getCustomer(context)
+    }
+
+    fun updateCustomer(context:Context,customName: String, phone: String, address: String) {
+
+        repositoryCustom.updateCustomer(context, customName, phone, address)
+    }
+
+    fun deleteCustomer(context:Context, customName: String) {
+        repositoryCustom.deleteCustomer(context, customName)
+    }
+
+    fun updateTickets(context:Context, work: String, dateCreated: String, dateSheduled: String, note: String,
+                      distance: String, deptClass: String, serviceType: String, reasonCall: String) {
+
+        repositoryTicket.updateTicket(context,work, dateCreated, dateSheduled, note,
+            distance, deptClass, serviceType, reasonCall)
+    }
+
+    fun deleteTickets(context:Context, work: String) {
+        repositoryTicket.deleteTicket(context,work)
     }
 
     fun showPopup(context:Context, v:View) {

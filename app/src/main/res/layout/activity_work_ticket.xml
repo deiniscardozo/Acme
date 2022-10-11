@@ -75,13 +75,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
 
-        <TextView
+        <EditText
             android:id="@+id/customer"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:layout_weight="3"
+            android:backgroundTint="@android:color/transparent"
             android:backgroundTintMode="@color/white"
             android:hint="@string/customer"
             android:textSize="14sp" />
@@ -92,27 +93,30 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:layout_weight="0.2"
+            android:backgroundTint="@android:color/transparent"
             app:srcCompat="@drawable/ic_baseline_phone_24"
             app:tint="@color/green" />
 
-        <TextView
+        <EditText
             android:id="@+id/phone"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:layout_weight="1"
+            android:backgroundTint="@android:color/transparent"
             android:backgroundTintMode="@color/white"
             android:hint="@string/phone_number"
             android:textSize="14sp" />
 
-        <TextView
+        <EditText
             android:id="@+id/dateSheduled"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:layout_weight="4.5"
+            android:backgroundTint="@android:color/transparent"
             android:backgroundTintMode="@color/white"
             android:hint="Sheduled"
             android:textSize="14sp" />
@@ -185,13 +189,14 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout8">
 
 
-        <TextView
+        <EditText
             android:id="@+id/address"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:layout_weight="1"
+            android:backgroundTint="@android:color/transparent"
             android:backgroundTintMode="@color/white"
             android:hint="@string/address"
             android:textSize="14sp" />
@@ -205,15 +210,16 @@
             android:layout_weight="0.55"
             android:backgroundTintMode="@color/white"
             android:text="@string/get_directions"
-            android:textSize="12sp" />
+            android:textSize="10sp" />
 
-        <TextView
+        <EditText
             android:id="@+id/note"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:layout_weight="1.6"
+            android:backgroundTint="@android:color/transparent"
             android:backgroundTintMode="@color/white"
             android:hint="@string/dispatch_note"
             android:textSize="14sp" />
@@ -266,7 +272,7 @@
             android:layout_marginEnd="10dp"
             android:layout_weight="1"
             android:backgroundTintMode="@color/white"
-            android:hint="@string/service_type_T"
+            android:text="@string/service_type_T"
             android:textSize="12sp"
             android:textStyle="bold" />
 
@@ -294,27 +300,29 @@
             android:layout_marginEnd="10dp"
             android:layout_weight="2.07"
             android:backgroundTintMode="@color/white"
-            android:hint="@string/distance"
+            android:hint="Distance"
             android:textSize="14sp" />
 
-        <TextView
+        <EditText
             android:id="@+id/dclass"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:layout_weight="1"
+            android:backgroundTint="@android:color/transparent"
             android:backgroundTintMode="@color/white"
             android:hint="@string/dept_class"
             android:textSize="14sp" />
 
-        <TextView
+        <EditText
             android:id="@+id/serviceType"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:layout_weight="1"
+            android:backgroundTint="@android:color/transparent"
             android:backgroundTintMode="@color/white"
             android:hint="@string/service_type"
             android:textSize="14sp"
@@ -346,12 +354,13 @@
             android:textSize="12sp"
             android:textStyle="bold" />
 
-        <TextView
+        <EditText
             android:id="@+id/reasonDes"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
+            android:backgroundTint="@android:color/transparent"
             android:layout_weight="5"
             android:backgroundTintMode="@color/white"
             android:hint="@string/reason_call"
@@ -369,6 +378,28 @@
             android:textSize="12sp" />
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/wySave"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.55"
+        android:backgroundTintMode="@color/white"
+        android:text="@string/save"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout9"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/wyDelete"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.55"
+        android:backgroundTintMode="@color/white"
+        android:text="@string/delete"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout9"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"

@@ -66,6 +66,31 @@ class CustomerRepository {
         return Customers(customer, phone, address)
     }
 
+    fun deleteCustomer(context:Context,param: String, ) {
+        val db: SQLiteDatabase = conn.writableDatabase
+        val param = arrayOf(param)
+        db.delete(Util.CUSTOMERS_TABLE,
+            Util.CUSTOMERS_CUSTOMER + "=?",
+            param)
+        Toast.makeText(context, "Ticket deleted successfully", Toast.LENGTH_LONG)
+            .show()
+
+        db.close()
+    }
+
+    fun updateCustomer(context:Context, customName: String, phone: String, address: String) {
+        val db: SQLiteDatabase = conn.writableDatabase
+        val param = arrayOf<String>(customName)
+        val values = ContentValues()
+        values.put(Util.CUSTOMERS_CUSTOMER, customName)
+        values.put(Util.CUSTOMERS_PHONE, phone)
+        values.put(Util.CUSTOMERS_ADDRESS, address)
+        db.update(Util.CUSTOMERS_TABLE, values, Util.CUSTOMERS_CUSTOMER + "=?", param)
+        Toast.makeText(context, "Ticket successfully updated", Toast.LENGTH_LONG)
+            .show()
+        db.close()
+    }
+
      fun getCustomer(contex:Context): List<Customers> {
          return listOf(queryCustomer(contex))
      }

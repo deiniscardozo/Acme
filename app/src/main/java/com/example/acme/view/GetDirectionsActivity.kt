@@ -2,8 +2,13 @@ package com.example.acme.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.ViewModelProvider
 import com.example.acme.R
 import com.example.acme.databinding.ActivityGetDirectionsBinding
+import com.example.acme.model.Util
+import com.example.acme.view.dashboard.DashboardActivity
+import com.example.acme.viewmodel.GetDirectionViewModel
+import com.example.acme.viewmodel.WorkTicketViewModel
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -16,12 +21,25 @@ class GetDirectionsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap:GoogleMap
     private lateinit var binding:ActivityGetDirectionsBinding
+    private lateinit var viewModel: GetDirectionViewModel
 
     override fun onCreate(savedInstanceState:Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityGetDirectionsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        viewModel = this.let {
+            ViewModelProvider(it)[GetDirectionViewModel::class.java]
+        }
+
+        binding.menu.setOnClickListener {
+            viewModel.showPopup(this, binding.menu)
+        }
+
+        binding.back.setOnClickListener {
+            Util.intentActivity(this, DashboardActivity::class.java)
+        }
 
         val tab = binding.tabLayout
         tab.addTab(tab.newTab().setText("Overview"))
@@ -53,4 +71,5 @@ class GetDirectionsActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
     }
+
 }

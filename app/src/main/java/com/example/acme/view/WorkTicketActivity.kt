@@ -43,21 +43,42 @@ class WorkTicketActivity : AppCompatActivity() {
             Util.intentActivity(this, GetDirectionsActivity::class.java)
         }
 
-        val work = intent.getStringExtra("work")
-        val name = intent.getStringExtra("customer")
-
         val customer = viewModel.getCustomer(this)[0]
         val ticket = viewModel.getTickets(this)[0]
 
-        binding.customer.text = customer.customer
-        binding.phone.text = customer.phone
-        binding.dateSheduled.text = ticket.dateSheduled
-        binding.address.text = customer.address
-        binding.note.text = ticket.note
+        binding.customer.setText(customer.customer)
+        binding.phone.setText(customer.phone)
+        binding.dateSheduled.setText(ticket.dateSheduled)
+        binding.address.setText(customer.address)
+        binding.note.setText(ticket.note)
         binding.distances.text = "Approx. 17 Minutes"
-        binding.dclass.text = ticket.deptClass
-        binding.serviceType.text = ticket.serviceType
-        binding.reasonDes.text = ticket.reasonCall
+        binding.dclass.setText(ticket.deptClass)
+        binding.serviceType.setText(ticket.serviceType)
+        binding.reasonDes.setText(ticket.reasonCall)
         binding.ticketNum.text = ticket.idTickets.toString()
+
+        binding.wyDelete.setOnClickListener {
+            viewModel.deleteCustomer(this, customer.customer.toString())
+            viewModel.deleteTickets(this, ticket.work.toString())
+        }
+
+        binding.wySave.setOnClickListener {
+            viewModel.updateCustomer( this,
+                customer.customer.toString(),
+                customer.phone.toString(),
+                customer.address.toString()
+            )
+
+            viewModel.updateTickets(this,
+                ticket.work.toString(),
+                ticket.dateCreated.toString(),
+                ticket.dateSheduled.toString(),
+                ticket.note.toString(),
+                ticket.distance.toString(),
+                ticket.deptClass.toString(),
+                ticket.serviceType.toString(),
+                ticket.reasonCall.toString()
+            )
+        }
     }
 }

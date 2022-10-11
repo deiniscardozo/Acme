@@ -84,6 +84,37 @@ class TicketRepository {
             distance, deptClass, serviceType, reasonCall)
     }
 
+    fun deleteTicket(context:Context, param: String, ) {
+        val db: SQLiteDatabase = conn.writableDatabase
+        val param = arrayOf<String>(param)
+        db.delete(Util.TICKETS_TABLE,
+            Util.TICKETS_WORK + "=?",
+            param)
+        Toast.makeText(context, "Ticket deleted successfully", Toast.LENGTH_LONG)
+            .show()
+
+        db.close()
+    }
+
+    fun updateTicket(context:Context, work: String, dateCreated: String, dateSheduled: String, note: String,
+                             distance: String, deptClass: String, serviceType: String, reasonCall: String) {
+        val db: SQLiteDatabase = conn.writableDatabase
+        val param = arrayOf<String>(work)
+        val values = ContentValues()
+        values.put(Util.TICKETS_WORK, work)
+        values.put(Util.TICKETS_DATE, dateCreated)
+        values.put(Util.TICKETS_SHEDULED, dateSheduled)
+        values.put(Util.TICKETS_NOTE, note)
+        values.put(Util.TICKETS_DISTANCE, distance)
+        values.put(Util.TICKETS_DEPTCLASS, deptClass)
+        values.put(Util.TICKETS_SERVICETYPE, serviceType)
+        values.put(Util.TICKETS_REASONCALL, reasonCall)
+        db.update(Util.TICKETS_TABLE, values, Util.TICKETS_WORK + "=?", param)
+        Toast.makeText(context, "Ticket successfully updated", Toast.LENGTH_LONG)
+            .show()
+        db.close()
+    }
+
     fun getTicket(contex:Context): Tickets{
         return queryTicket(contex)
     }

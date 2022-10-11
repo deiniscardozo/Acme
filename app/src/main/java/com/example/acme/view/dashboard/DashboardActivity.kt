@@ -47,6 +47,10 @@ class DashboardActivity : AppCompatActivity() {
             viewModel.calendar(this, this)
         }
 
+        binding.appBarDashboard.Sync.setOnClickListener {
+            viewModel.calendarevent(this)
+        }
+
         binding.appBarDashboard.add.setOnClickListener {
             viewModel.addTicket(this, current.toString(), supportFragmentManager)
         }

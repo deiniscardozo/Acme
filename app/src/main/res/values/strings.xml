@@ -44,4 +44,6 @@
     <string name="service_type_T">Service Type:</string>
     <string name="reason_call_t">Reason Call:</string>
     <string name="title_activity_get_directions">GetDirectionsActivity</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
 </resources>
