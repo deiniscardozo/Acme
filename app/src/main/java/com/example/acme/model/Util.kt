@@ -47,10 +47,12 @@ object Util: AppCompatActivity() {
             CUSTOMERS_CUSTOMER + " TEXT," + CUSTOMERS_PHONE + " TEXT," + CUSTOMERS_ADDRESS + " TEXT)"
 
     //Intent Activity
-    fun intentActivity(context: Context?, activity: Class<*>) {
+    fun intentActivity(context: Context?, activity: Class<*>, param: String, param1: String) {
         ContextCompat.startActivity(
             context!!,
-            Intent(context, activity),
+            Intent(context, activity)
+                .putExtra("param", param)
+                .putExtra("param1", param1),
             Bundle()
         )
         finish()

@@ -20,29 +20,31 @@ class WorkTicketViewModel: ViewModel() {
     private val repositoryCustom = CustomerRepository()
 
     fun getTickets(context:Context):List<Tickets> {
-
-        return listOf(repositoryTicket.getTicket(context))
+        return repositoryTicket.queryTicket(context)
     }
 
     fun getCustomer(context:Context):List<Customers> {
-
-        return repositoryCustom.getCustomer(context)
+        return repositoryCustom.queryCustomer(context)
     }
 
-    fun updateCustomer(context:Context,customName: String, phone: String, address: String) {
+    fun getTicketView(context:Context, id:String):List<Tickets> {
+        return repositoryTicket.getTicket(context, id)
+    }
 
-        repositoryCustom.updateCustomer(context, customName, phone, address)
+    fun getCustomerView(context:Context, id:String):List<Customers> {
+        return repositoryCustom.gtCustomer(context, id)
     }
 
     fun deleteCustomer(context:Context, customName: String) {
         repositoryCustom.deleteCustomer(context, customName)
     }
 
-    fun updateTickets(context:Context, work: String, dateCreated: String, dateSheduled: String, note: String,
-                      distance: String, deptClass: String, serviceType: String, reasonCall: String) {
+    fun updateCustomer(context:Context, customers:Customers, id:String) {
+        repositoryCustom.updateCustomer(context, customers, id)
+    }
 
-        repositoryTicket.updateTicket(context,work, dateCreated, dateSheduled, note,
-            distance, deptClass, serviceType, reasonCall)
+    fun updateTickets(context:Context, tickets:Tickets, id:String) {
+        repositoryTicket.updateTicket(context, tickets, id)
     }
 
     fun deleteTickets(context:Context, work: String) {
@@ -57,9 +59,9 @@ class WorkTicketViewModel: ViewModel() {
         popup.setOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener { item ->
             when(item.itemId) {
                 R.id.action_dashboard ->
-                    Util.intentActivity(context, DashboardActivity::class.java)
+                    Util.intentActivity(context, DashboardActivity::class.java, "", "")
                 R.id.action_new_ticket ->
-                    Util.intentActivity(context, GetDirectionsActivity::class.java)
+                    Util.intentActivity(context, GetDirectionsActivity::class.java, "", "")
             }
             true
         })

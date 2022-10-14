@@ -51,7 +51,7 @@ class MainViewModel: ViewModel() {
         val passValid = validatePass(context, pass)
 
         if (userValid && passValid) {
-            Util.intentActivity(context, DashboardActivity::class.java)
+            Util.intentActivity(context, DashboardActivity::class.java, "", "")
         }
     }
 }

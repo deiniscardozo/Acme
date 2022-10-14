@@ -76,20 +76,34 @@ class DashboardViewModel: ViewModel() {
                 "<font color='#32CD32'><b>Save</b></font>"),
                 DialogInterface.OnClickListener { dialog, id ->
 
-                    ticketsRegister(context, work.text.toString(), date, sheduled.text.toString(),
-                        note.text.toString(), distance, dept.text.toString(), service.text.toString(),
-                        reason.text.toString())
+                    val tickets = Tickets(0,
+                                          work.text.toString(),
+                                          date,
+                                          sheduled.text.toString(),
+                                          note.text.toString(),
+                                          distance,
+                                          dept.text.toString(),
+                                          service.text.toString(),
+                                          reason.text.toString())
 
-                    customersRegister(context, customer.text.toString(), phone.text.toString(), address.text.toString())
+                    ticketsRegister(tickets, context)
 
-                    Toast.makeText(context, "Ticket $work created successfully",
+                    val customers = Customers(0,
+                            customer.text.toString(),
+                            phone.text.toString(),
+                            address.text.toString()
+                    )
+
+                    customersRegister(customers, context)
+
+                    val ticketsNum = tickets.idTickets.toString()
+
+                    Toast.makeText(context, "Ticket $ticketsNum created successfully",
                         Toast.LENGTH_SHORT).show()
-
-                    val idTicket = view.findViewById<TextView>(R.id.ticketNum)
 
                     dialog.cancel()
 
-                    Util.intentActivity(context, WorkTicketActivity::class.java)
+                    Util.intentActivity(context, WorkTicketActivity::class.java, "", "")
 
                 })
 
@@ -97,27 +111,20 @@ class DashboardViewModel: ViewModel() {
         builder.show()
     }
 
-    fun ticketsRegister(context:Context, work: String, dateCreated: String, dateSheduled: String,
-                      note: String, distance: String, deptClass: String, serviceType: String,
-                      reasonCall: String) {
-
-        repositoryTicket.TicketsInsert(context, work, dateCreated, dateSheduled, note,
-            distance, deptClass, serviceType, reasonCall)
+    fun ticketsRegister(tickets: Tickets ,context:Context) {
+        repositoryTicket.ticketsInsert(tickets, context)
     }
 
-    fun customersRegister(context:Context, customer: String, phone: String, address: String){
-
-        repositoryCustom.CustomersInsert(context, customer, phone, address)
+    fun customersRegister(customers:Customers, context:Context){
+        repositoryCustom.customersInsert(customers, context)
     }
 
-    fun getTickets(context:Context):List<Tickets> {
-
-        return listOf(repositoryTicket.getTicket(context))
+    fun getTickets(context:Context, id:String):List<Tickets> {
+        return repositoryTicket.queryTicket(context)
     }
 
     fun getCustomer(context:Context):List<Customers> {
-
-        return repositoryCustom.getCustomer(context)
+        return repositoryCustom.queryCustomer(context)
     }
 
     fun showPopup(context:Context, v:View) {
@@ -128,9 +135,9 @@ class DashboardViewModel: ViewModel() {
         popup.setOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener { item ->
             when(item.itemId) {
                 R.id.action_work_ticket ->
-                    Util.intentActivity(context, WorkTicketActivity::class.java)
+                    Util.intentActivity(context, WorkTicketActivity::class.java, "", "")
                 R.id.action_new_ticket ->
-                    Util.intentActivity(context, GetDirectionsActivity::class.java)
+                    Util.intentActivity(context, GetDirectionsActivity::class.java, "", "")
             }
             true
         })
@@ -139,8 +146,8 @@ class DashboardViewModel: ViewModel() {
     }
 
     fun showDatePickerDialog(dateSheduled:TextView, fragmentManager:FragmentManager){
-
-            val newFragment = DatePickerFragment.newInstance(DatePickerDialog.OnDateSetListener { _, year, month, day  ->
+            val newFragment = DatePickerFragment.newInstance(
+                DatePickerDialog.OnDateSetListener { _, year, month, day  ->
                 // +1 because January is zero
                 val selectedDate = day.toString() + "-" + (month + 1) + "-" + year
                 dateSheduled.text = selectedDate

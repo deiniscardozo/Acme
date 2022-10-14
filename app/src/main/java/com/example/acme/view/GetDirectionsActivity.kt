@@ -38,7 +38,7 @@ class GetDirectionsActivity : AppCompatActivity(), OnMapReadyCallback {
         }
 
         binding.back.setOnClickListener {
-            Util.intentActivity(this, DashboardActivity::class.java)
+            Util.intentActivity(this, DashboardActivity::class.java, "")
         }
 
         val tab = binding.tabLayout

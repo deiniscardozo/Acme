@@ -11,9 +11,10 @@ class Tickets {
     var serviceType: String? = null
     var reasonCall: String? = null
 
-    constructor(work: String?, dateCreated: String?, dateSheduled: String?,
+    constructor(idTickets: Int?, work: String?, dateCreated: String?, dateSheduled: String?,
                 note: String?, distance: String?, deptClass: String?, serviceType: String?,
                 reasonCall: String?) {
+        this.idTickets = idTickets
         this.work = work
         this.dateCreated = dateCreated
         this.dateSheduled = dateSheduled

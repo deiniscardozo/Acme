@@ -1,12 +1,15 @@
 package com.example.acme.view.dashboard.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.os.Build
+import android.util.Log
 import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import com.example.acme.databinding.ItemDashboardBinding
 import com.example.acme.model.Util
+import com.example.acme.model.Util.startActivity
 import com.example.acme.model.entity.Customers
 import com.example.acme.model.entity.Tickets
 import com.example.acme.view.WorkTicketActivity
@@ -30,7 +33,9 @@ class DashboardViewHolder(view: View): RecyclerView.ViewHolder(view) {
         binding.ticketNum.text = ticketModel.idTickets.toString()
         binding.work.text = ticketModel.work
         binding.address.text = customerModel.address
-        binding.viewTicket.setOnClickListener { Util.intentActivity(context, WorkTicketActivity::class.java) }
-
+        binding.viewTicket.setOnClickListener {
+            Util.intentActivity(context, WorkTicketActivity::class.java,
+                ticketModel.idTickets.toString(), customerModel.idCustomers.toString())
+        }
     }
 }

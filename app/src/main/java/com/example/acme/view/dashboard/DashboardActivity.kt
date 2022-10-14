@@ -2,6 +2,7 @@ package com.example.acme.view.dashboard
 
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -37,6 +38,7 @@ class DashboardActivity : AppCompatActivity() {
         val current = LocalDateTime.now()
         val formatter = DateTimeFormatter.ofPattern("MMM, dd-yyyy")
         val formatted = current.format(formatter)
+        val adap = DashboardAdapter(listTickets, listCustomer, this)
 
         binding.tvDate.text = formatted
 
@@ -62,13 +64,11 @@ class DashboardActivity : AppCompatActivity() {
         binding.reciclerTickets.apply {
             isVisible = true
             layoutManager = LinearLayoutManager(context)
-            adapter = DashboardAdapter(listTickets, listCustomer, context)
+            adap.setItems(
+                viewModel.getTickets(context, ""),
+                viewModel.getCustomer(context)
+            )
+            adapter = adap
         }
-
-        DashboardAdapter(listTickets, listCustomer, this).setItems(
-            viewModel.getTickets(this),
-            viewModel.getCustomer(this)
-        )
-
     }
 }

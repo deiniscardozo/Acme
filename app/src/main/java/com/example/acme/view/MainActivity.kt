@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnRegister.setOnClickListener {
-            Util.intentActivity(this, UsersRegisterActivity::class.java)
+            Util.intentActivity(this, UsersRegisterActivity::class.java, "")
         }
 
         binding.btnLogin.setOnClickListener {
