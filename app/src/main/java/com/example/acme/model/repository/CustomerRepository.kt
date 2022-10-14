@@ -4,12 +4,10 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
-import android.util.Log
 import android.widget.Toast
 import com.example.acme.model.DataBase
 import com.example.acme.model.Util
 import com.example.acme.model.entity.Customers
-import com.example.acme.model.entity.Tickets
 
 class CustomerRepository {
 

@@ -263,6 +263,7 @@
         android:id="@+id/constraintLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/tabLayout"
         app:layout_constraintStart_toStartOf="parent">
 
@@ -270,7 +271,6 @@
             android:id="@+id/reason"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:backgroundTintMode="@color/white"
             android:text="@string/reason_call_t"
             android:textSize="12sp"
             android:textStyle="bold"

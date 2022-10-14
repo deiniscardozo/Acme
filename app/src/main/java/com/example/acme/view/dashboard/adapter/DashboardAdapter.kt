@@ -22,7 +22,6 @@ class DashboardAdapter (private val listTickets: MutableList<Tickets>,
             , false))
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: DashboardViewHolder, position: Int) {
         val itemTicket = listTickets[position]
         val itemCustomer = listCustomers[position]

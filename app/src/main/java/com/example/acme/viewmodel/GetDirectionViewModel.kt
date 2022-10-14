@@ -7,7 +7,6 @@ import androidx.appcompat.widget.PopupMenu
 import androidx.lifecycle.ViewModel
 import com.example.acme.R
 import com.example.acme.model.Util
-import com.example.acme.view.GetDirectionsActivity
 import com.example.acme.view.WorkTicketActivity
 import com.example.acme.view.dashboard.DashboardActivity
 
@@ -21,9 +20,9 @@ class GetDirectionViewModel: ViewModel() {
         popup.setOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener { item ->
             when(item.itemId) {
                 R.id.action_dashboard ->
-                    Util.intentActivity(context, DashboardActivity::class.java, "")
+                    Util.intentActivity(context, DashboardActivity::class.java, "", "")
                 R.id.action_new_ticket ->
-                    Util.intentActivity(context, WorkTicketActivity::class.java, "")
+                    Util.intentActivity(context, WorkTicketActivity::class.java, "", "")
             }
             true
         })

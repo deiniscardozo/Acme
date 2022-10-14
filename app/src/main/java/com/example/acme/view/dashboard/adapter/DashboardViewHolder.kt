@@ -1,35 +1,29 @@
 package com.example.acme.view.dashboard.adapter
 
 import android.content.Context
-import android.content.Intent
-import android.os.Build
-import android.util.Log
 import android.view.View
-import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import com.example.acme.databinding.ItemDashboardBinding
 import com.example.acme.model.Util
-import com.example.acme.model.Util.startActivity
 import com.example.acme.model.entity.Customers
 import com.example.acme.model.entity.Tickets
 import com.example.acme.view.WorkTicketActivity
-import java.time.format.DateTimeFormatter
 
 class DashboardViewHolder(view: View): RecyclerView.ViewHolder(view) {
 
     private val binding = ItemDashboardBinding.bind(view)
 
-    @RequiresApi(Build.VERSION_CODES.O)
     fun render(ticketModel: Tickets, customerModel: Customers, context:Context) {
 
         val dateCreated = ticketModel.dateCreated
-        val formatter = DateTimeFormatter.ofPattern("mm/dd/yyyy")
-        val formatterTime = DateTimeFormatter.ofPattern("HH:mm a")
-        val formatted = dateCreated?.format(formatter)
-        val formattedTime = dateCreated?.format(formatterTime)
+        val month = dateCreated?.subSequence(5,6).toString()
+        val year = dateCreated?.subSequence(0,4).toString()
+        val day = dateCreated?.subSequence(8,9).toString()
+        val date = "$month/$day/$year"
+        val hour = dateCreated?.subSequence(11,16)
 
-        binding.dateCreated.text = formatted
-        binding.timeCreated.text = formattedTime
+        binding.dateCreated.text = date
+        binding.timeCreated.text = hour
         binding.ticketNum.text = ticketModel.idTickets.toString()
         binding.work.text = ticketModel.work
         binding.address.text = customerModel.address

@@ -1,7 +1,6 @@
 package com.example.acme.view
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.acme.R
@@ -10,7 +9,6 @@ import com.example.acme.model.Util
 import com.example.acme.model.entity.Customers
 import com.example.acme.model.entity.Tickets
 import com.example.acme.view.dashboard.DashboardActivity
-import com.example.acme.view.dashboard.adapter.DashboardViewHolder
 import com.example.acme.viewmodel.WorkTicketViewModel
 
 class WorkTicketActivity : AppCompatActivity() {
@@ -46,7 +44,8 @@ class WorkTicketActivity : AppCompatActivity() {
         tab.addTab(tab.newTab().setIcon(R.drawable.ic_baseline_photo_camera_24))
 
         binding.getDirections.setOnClickListener {
-            Util.intentActivity(this, GetDirectionsActivity::class.java, "", "")
+            Util.intentActivity(this, GetDirectionsActivity::class.java,
+                binding.address.text.toString(), "")
         }
 
         val customer = if(idTickets.isNullOrEmpty()) {
@@ -100,6 +99,12 @@ class WorkTicketActivity : AppCompatActivity() {
                 binding.reasonDes.text.toString())
 
             viewModel.updateTickets(this, tickets, ticket.idTickets.toString())
+
+            Util.intentActivity(this, DashboardActivity::class.java, "", "")
         }
+    }
+
+    override fun onBackPressed() {
+        Util.intentActivity(this, DashboardActivity::class.java, "", "")
     }
 }

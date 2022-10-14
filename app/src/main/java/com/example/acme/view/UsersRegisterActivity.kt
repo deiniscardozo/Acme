@@ -26,8 +26,7 @@ class UsersRegisterActivity: AppCompatActivity() {
             val pass = binding.userPassReg.text.toString()
 
             viewModel.UsersRegister(applicationContext, user, pass)
-            Util.intentActivity(this, MainActivity::class.java, "")
+            Util.intentActivity(this, MainActivity::class.java, "", "")
         }
-
     }
 }

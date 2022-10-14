@@ -57,13 +57,4 @@ object Util: AppCompatActivity() {
         )
         finish()
     }
-
-    //Intent Fragment
-    fun intentFragment(fragment:Fragment, manager:FragmentManager, viewInt: Int) {
-        val transaction = manager.beginTransaction()
-
-        transaction.replace(viewInt, fragment)
-        transaction.addToBackStack(null)
-        transaction.commit()
-    }
 }

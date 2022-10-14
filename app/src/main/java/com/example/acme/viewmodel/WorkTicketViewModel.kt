@@ -61,7 +61,7 @@ class WorkTicketViewModel: ViewModel() {
                 R.id.action_dashboard ->
                     Util.intentActivity(context, DashboardActivity::class.java, "", "")
                 R.id.action_new_ticket ->
-                    Util.intentActivity(context, GetDirectionsActivity::class.java, "", "")
+                    Util.intentActivity(context, GetDirectionsActivity::class.java, "Caracas", "")
             }
             true
         })

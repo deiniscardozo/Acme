@@ -127,7 +127,7 @@ class DashboardViewModel: ViewModel() {
         return repositoryCustom.queryCustomer(context)
     }
 
-    fun showPopup(context:Context, v:View) {
+    fun showPopup(context:Context, v:View, direction: String) {
         val popup = PopupMenu(context, v)
         val inflater:MenuInflater = popup.menuInflater
         inflater.inflate(R.menu.dashboard_activity_menu, popup.menu)
@@ -137,7 +137,7 @@ class DashboardViewModel: ViewModel() {
                 R.id.action_work_ticket ->
                     Util.intentActivity(context, WorkTicketActivity::class.java, "", "")
                 R.id.action_new_ticket ->
-                    Util.intentActivity(context, GetDirectionsActivity::class.java, "", "")
+                    Util.intentActivity(context, GetDirectionsActivity::class.java, "Caracas", "")
             }
             true
         })

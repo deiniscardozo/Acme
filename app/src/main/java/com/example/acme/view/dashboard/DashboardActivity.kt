@@ -2,7 +2,6 @@ package com.example.acme.view.dashboard
 
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -11,7 +10,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.acme.databinding.ActivityDashboardBinding
 import com.example.acme.model.entity.Customers
 import com.example.acme.model.entity.Tickets
-import com.example.acme.model.repository.TicketRepository
 import com.example.acme.view.dashboard.adapter.DashboardAdapter
 import com.example.acme.viewmodel.DashboardViewModel
 import java.time.LocalDateTime
@@ -23,7 +21,6 @@ class DashboardActivity : AppCompatActivity() {
     private lateinit var viewModel:DashboardViewModel
     var listTickets: MutableList<Tickets> = mutableListOf()
     var listCustomer: MutableList<Customers> = mutableListOf()
-    private val repositoryTicket = TicketRepository()
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,7 +55,8 @@ class DashboardActivity : AppCompatActivity() {
         }
 
         binding.appBarDashboard.menu.setOnClickListener {
-            viewModel.showPopup(this, binding.appBarDashboard.menu)
+            viewModel.showPopup(this, binding.appBarDashboard.menu,
+                viewModel.getCustomer(this)[0].address.toString())
         }
 
         binding.reciclerTickets.apply {
